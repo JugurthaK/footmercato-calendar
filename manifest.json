@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Calendrier Footmercato",
+  "version": "1.0",
+  "description": "Cette extension vous permez  d'ajouter les matchs de footmercato.com/programme-tv directement sur votre agenda Google.",
+  "icons": {
+    "16": "images/16x16.png",
+    "32": "images/32x32.png",
+    "48": "images/48x48.png",
+    "128": "images/128x128.png"
+  },
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": ["https://www.footmercato.net/programme-tv/*"]
+    }
+  ]
+}
