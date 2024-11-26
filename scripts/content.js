@@ -5,31 +5,25 @@ function add2hours(dateString) {
 }
 
 function getDataFromMatch(match) {
-  const displayedHour = match.querySelector(".matchBroadcast__headDate > time");
+  const displayedHour = match.querySelector(".matchFull__infosDate > time");
   if (!displayedHour) return null;
   const start = new Date(displayedHour.getAttribute("datetime")).toISOString();
   const end = add2hours(start);
-  const competition = match.querySelector(
-    ".matchBroadcast__headCompetition"
-  ).innerText;
   const teams = Array.from(
     match.querySelectorAll(".matchTeam__name"),
     (elem) => elem.innerText
   );
-  const link = match
-    .querySelector(".matchBroadcast__link")
-    .getAttribute("href");
-  const location = `https://footmercato.net${link}`;
-  const title = `[${competition}] ${teams[0]} - ${teams[1]}`;
-  const description = `Match de ${competition} entre ${teams.join(
-    " et "
-  )}, retrouvez toutes les informations sur ${location}`;
+  /*   const link = match
+    .querySelector(".matchFull__broadcastImage")
+    .getAttribute("src");
+  console.log("link", link); */
+  const title = ` ${teams[0]} - ${teams[1]}`;
+  const description = `Match entre ${teams.join(" et ")}`;
   return {
     start,
     end,
     title,
     description,
-    location,
   };
 }
 
